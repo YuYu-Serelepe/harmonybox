@@ -20,7 +20,7 @@ Funcionalidades Principais:
 
 2.Equipe
 
-Thais Barbosa Carneiro
+Thais Barbosa Carneiro &
 Yuri Aguilera Proença
 
 3.Como Configurar e Executar
@@ -62,25 +62,16 @@ A aplicação irá redirecioná-lo automaticamente para a página de login.
 
 Este é o script SQL para criar o banco de dados musiquinha e as tabelas necessárias.
 
+```sql -- Crie primeiro o banco de dados, se não existir
+
 CREATE DATABASE IF NOT EXISTS musiquinha;
 
-USE musiquinha;
+-- Use o banco de dados USE musiquinha;
 
-CREATE TABLE usuarios (
-    id INT AUTO_INCREMENT PRIMARY KEY,
-    nome_usuario VARCHAR(50) NOT NULL UNIQUE,
-    senha VARCHAR(255) NOT NULL,
-    data_cadastro TIMESTAMP DEFAULT CURRENT_TIMESTAMP
-);
+-- Tabela de utilizadores CREATE TABLE usuarios ( id INT AUTO_INCREMENT PRIMARY KEY, nome_usuario VARCHAR(50) NOT NULL UNIQUE, senha VARCHAR(255) NOT NULL, data_cadastro TIMESTAMP DEFAULT CURRENT_TIMESTAMP );
 
-CREATE TABLE avaliacoes (
-    id INT AUTO_INCREMENT PRIMARY KEY,
-    id_usuario INT NOT NULL,
-    nome_album VARCHAR(255) NOT NULL,
-    artista VARCHAR(255) NOT NULL,
-    nota INT NOT NULL, 
-    data_avaliacao TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+-- Tabela de avaliações (o CRUD) CREATE TABLE avaliacoes ( id INT AUTO_INCREMENT PRIMARY KEY, id_usuario INT NOT NULL, nome_album VARCHAR(255) NOT NULL, artista VARCHAR(255) NOT NULL, nota INT NOT NULL, data_avaliacao TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
 
-    FOREIGN KEY (id_usuario) REFERENCES usuarios(id) 
-        ON DELETE CASCADE
-);
+FOREIGN KEY (id_usuario) REFERENCES usuarios(id) 
+    ON DELETE CASCADE
+); ```
