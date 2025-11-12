@@ -62,13 +62,10 @@ A aplicação irá redirecioná-lo automaticamente para a página de login.
 
 Este é o script SQL para criar o banco de dados musiquinha e as tabelas necessárias.
 
--- Crie primeiro o banco de dados, se não existir
 CREATE DATABASE IF NOT EXISTS musiquinha;
 
--- Use o banco de dados
 USE musiquinha;
 
--- Tabela de utilizadores
 CREATE TABLE usuarios (
     id INT AUTO_INCREMENT PRIMARY KEY,
     nome_usuario VARCHAR(50) NOT NULL UNIQUE,
@@ -76,7 +73,6 @@ CREATE TABLE usuarios (
     data_cadastro TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );
 
--- Tabela de avaliações (o CRUD)
 CREATE TABLE avaliacoes (
     id INT AUTO_INCREMENT PRIMARY KEY,
     id_usuario INT NOT NULL,
